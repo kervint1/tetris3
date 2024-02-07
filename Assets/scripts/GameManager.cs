@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
     void PlayerInput()
     {
         if ((Input.GetKey(KeyCode.D) || clickRight) && (Time.time > nextKeyLeftRightTimer)
-            || (Input.GetKey(KeyCode.D) || clickRight))
+            || Input.GetKeyDown(KeyCode.D))
         {
             activeBlock.MoveRight();//‰E‚É“®‚©‚·
 
