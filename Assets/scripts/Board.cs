@@ -35,7 +35,6 @@ public class Board : MonoBehaviour
     {
         if (emptySprite)
         {
-            Debug.Log("test");
             for (int y = 0; y < height - header; y++) 
             {
                 for (int x = 0; x < width; x++)

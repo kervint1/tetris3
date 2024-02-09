@@ -4,37 +4,33 @@ using UnityEngine;
 
 public class GameManager2 : MonoBehaviour
 {
-    
-    float speed = 0.05f;
+    private float speed = 10f;
 
-    private void Start()
+    void Start()
     {
-        
     }
+
     void Update()
     {
-        // Wキー（前方移動）
-        if (Input.GetKey(KeyCode.W))
+        Vector2 position = transform.position;
+
+        if (Input.GetKey("left"))
         {
-            transform.position = transform.forward * speed;
+            position.x -= speed;
+        }
+        else if (Input.GetKey("right"))
+        {
+            position.x += speed;
+        }
+        else if (Input.GetKey("up"))
+        {
+            position.y += speed;
+        }
+        else if (Input.GetKey("down"))
+        {
+            position.y -= speed;
         }
 
-        // Sキー（後方移動）
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position = -transform.forward * speed;
-        }
-
-        // Dキー（右移動）
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position = transform.right * speed;
-        }
-
-        // Aキー（左移動）
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position = -transform.right * speed;
-        }
+        transform.position = position;
     }
 }
