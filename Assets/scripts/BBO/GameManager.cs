@@ -1,36 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameManager2 : MonoBehaviour
+
+public class BBOGameManager : MonoBehaviour
 {
-    private float speed = 10f;
-
-    void Start()
+    public void Back()
     {
+        SceneManager.LoadScene(0);
     }
-
-    void Update()
+    public void Reset()
     {
-        Vector2 position = transform.position;
-
-        if (Input.GetKey("left"))
-        {
-            position.x -= speed;
-        }
-        else if (Input.GetKey("right"))
-        {
-            position.x += speed;
-        }
-        else if (Input.GetKey("up"))
-        {
-            position.y += speed;
-        }
-        else if (Input.GetKey("down"))
-        {
-            position.y -= speed;
-        }
-
-        transform.position = position;
+        SceneManager.LoadScene(2);
     }
 }

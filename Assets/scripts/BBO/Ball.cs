@@ -1,25 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Ball : MonoBehaviour
 {
+    [SerializeField]
+    float speed;
+    private Vector2 m_direction = new(1, 1);
 
-    float speed = 1.0f;
+    Rigidbody2D m_Rigidbody;
+    Vector2 m_velocity;
+
     // Start is called before the first frame update
     void Start()
     {
+        m_Rigidbody = GetComponent<Rigidbody2D>();
+        
+        m_direction.Normalize();
+
+        m_velocity = m_direction *  Time.deltaTime * speed;
+        m_Rigidbody.velocity = m_velocity;
+        Debug.Log("ballstart");
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector2 position = transform.position;
-        if (position.y > -500) 
-        { 
-            position.y -= speed;
-        }
-        transform.position = position;
+        //.contacts[0]で0番目の接触点のデータ取得
+        //.normalで法線ベクトル取得
+        var inDirection = m_velocity;
+        var inNormal = collision.contacts[0].normal;
+
+        m_direction = Vector2.Reflect(inDirection, inNormal).normalized;
+
+        m_velocity = m_direction * Time.deltaTime * speed;
+        m_Rigidbody.velocity = m_velocity;
     }
 }

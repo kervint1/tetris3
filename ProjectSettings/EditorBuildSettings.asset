@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 5caa16dbaff2a7743a9a10e427303b3e
+  - enabled: 1
     path: Assets/Scenes/TetrisScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/StartScene.unity
-    guid: 5caa16dbaff2a7743a9a10e427303b3e
+    path: Assets/Scenes/BboScene.unity
+    guid: 243f952671f6651409ef6c5bdeea0410
   m_configObjects: {}

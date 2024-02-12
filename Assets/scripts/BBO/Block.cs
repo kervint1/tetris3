@@ -6,10 +6,16 @@ public class Block2 : MonoBehaviour
 {
     int height = 30, playerZone= 5, width = 10;
 
+    private Transform[,] grid;
 
     [SerializeField]
     Transform emptysprite;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        grid = new Transform[width, height];
+    }
     void Start()
     {
         CreateBoard();
@@ -26,9 +32,9 @@ public class Block2 : MonoBehaviour
                     Transform clone = Instantiate(emptysprite,
                         new Vector3(x*40, (y+playerZone)*7, 0),Quaternion.identity);
                     clone.transform.parent = transform;
+
                 }
             }
         }
-
     }
 }

@@ -7,6 +7,10 @@ public class NewBehaviourScript : MonoBehaviour
 {
    public void StartTetris()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
+    }
+    public void StartBBO()
+    {
+        SceneManager.LoadScene(2);
     }
 }

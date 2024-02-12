@@ -196,6 +196,11 @@ public class GameManager : MonoBehaviour
     //シーンを再読み込みする（ボタン押しで呼ぶ）
     public void Reset()
     {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Back()
+    {
         SceneManager.LoadScene(0);
     }
 
